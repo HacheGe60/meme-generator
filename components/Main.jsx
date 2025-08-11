@@ -23,16 +23,17 @@ export default function Main() {
    * from using `fetch`. We'll learn why after this challenge.
    */
 
+  const [allMemes, setAllMemes] = useState([]);
+
   useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then(res => res.json())
       .then(data => {
-        setMemesArray(data.data.memes);
+        setAllMemes(data.data.memes);
       });
   }, []);
 
 
-  const [memesArray, setMemesArray] = useState([]);
 
 
   function handleChange(event) {
